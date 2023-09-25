@@ -6,6 +6,7 @@ const Hero = () => {
      <header className='w-full flex justify-center items-center flex-col'>
         <nav className="flex justify-between flex-col items-centers">
             <img src={logo} alt="logo" className='w-28 object-contain'/>
+            <button type="button" className='black_btn'>Github</button>
 
         </nav>
      </header>
