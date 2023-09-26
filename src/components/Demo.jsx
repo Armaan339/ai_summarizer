@@ -1,27 +1,34 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import {copy,linkIcon,loader,tick} from '../assets'
+import { useState, useEffect } from 'react'
+import { copy, linkIcon, loader, tick } from '../assets'
 
 const Demo = () => {
-  return (
-    <section className='mt-16 w-full max-w-xl'>
-        <div className="flex flex-col w-full gap-2">
-            <form onSubmit={()=>{}} className="relative flex justify-center items-center">
-                <img src={linkIcon} alt="link_icon" className='absolute left-0 my-2 ml-3 w-5'/>
-                <input type="url" placeholder="Enter a url" value="" onChange={()=>{}}
-                required className='url_input peer'/>
-                <button type="submit" className="submit_btn peer-focus
+    const [article, setArticle] = useState({
+        url:"",
+        summary:""
+    });
+    const handelSubmit = async (e)=>{
+        alert("Submitted")
+    }
+    return (
+        <section className='mt-16 w-full max-w-xl'>
+            <div className="flex flex-col w-full gap-2">
+                <form onSubmit={handelSubmit} className="relative flex justify-center items-center">
+                    <img src={linkIcon} alt="link_icon" className='absolute left-0 my-2 ml-3 w-5' />
+                    <input type="url" placeholder="Enter a url" value={article.url} onChange={(e) => { setArticle({...article,url:e.target.value})}}
+                        required className='url_input peer' />
+                    <button type="submit" className="submit_btn peer-focus
                 peer-focus:border-gray-700
                 peer-focus:text-gray-700">
-                ↵
-                </button>
- 
+                        ↵
+                    </button>
+                </form>
+                {/* Browse URL History */}
 
-            </form>
-        </div>
-    </section>
-  )
+            </div>
+            {/* Display Results  */}
+        </section>
+    )
 }
 
 export default Demo
- 
